@@ -32,7 +32,7 @@ client.get_credentials()
 # /!\ This is important
 ```
 
-**4.** Download the `ntfy` app, and subscribe to a subject. The string you choose for your subject must be unique so strangers can't subsribe to your feed. A random string will to the job.
+**4.** Download the `ntfy` app, and subscribe to a subject. The string you choose for your subject must be unique so strangers can't subscribe to your feed. A random string will to the job.
 
 **5.** Fill the `config.json` file with the data from steps 3 and 4.
 
