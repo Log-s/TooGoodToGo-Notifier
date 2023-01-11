@@ -34,7 +34,7 @@ client.get_credentials()
 
 **4.** Download the `ntfy` app, and subscribe to a subject. The string you choose for your subject must be unique so strangers can't subscribe to your feed. A random string will to the job.
 
-**5.** Fill the `config.json` file with the data from steps 3 and 4.
+**5.** Fill the `config.json` file with the data from steps 3 and 4 (leave the `available` field empty).
 
 **6.** Setup the cronjob (`crontab -e`)
 ```bash
