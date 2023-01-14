@@ -16,7 +16,7 @@ def send_notification(subject, article_name):
         "Priority": "urgent",
         "Tags": "tada"
     }
-    data = f"Un nouveau panier chez {article_name} est disponible".encode("utf-8")
+    data = f"Un nouveau panier est disponible : {article_name}".encode("utf-8")
     s.post(f"https://ntfy.sh/{subject}", headers=headers, data=data)
 
 # Read config file to get all last available articles (avoid spam)
@@ -42,11 +42,14 @@ items = client.get_items()
 for item in items:
     nb_items = int(item["items_available"])
     item_name = item["display_name"]
-    if nb_items > 0 and item_name not in last_available_articles:
-        last_available_articles.append(item_name)
+    item_id = int(item["item"]["item_id"])
+
+    if nb_items > 0 and item_id not in last_available_articles:
+        last_available_articles.append(item_id)
         send_notification(subject, item_name)
-    elif nb_items == 0 and item_name in last_available_articles:
-        last_available_articles.remove(item_name)
+        
+    elif nb_items == 0 and item_id in last_available_articles:
+        last_available_articles.remove(item_id)
 
 # Update config file
 config["available"] = last_available_articles
