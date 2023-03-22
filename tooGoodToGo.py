@@ -28,11 +28,12 @@ with open(CONFIG_FILE, "r") as f:
     access_token = config["access_token"]
     refresh_token = config["refresh_token"]
     user_id = config["user_id"]
+    cookie = config["cookie"]
     last_available_articles = config["available"]
 
 
 # Create tgtg client object
-client = TgtgClient(access_token=access_token, refresh_token=refresh_token, user_id=user_id)
+client = TgtgClient(access_token=access_token, refresh_token=refresh_token, user_id=user_id, cookie=cookie)
 
 # Query favourites
 items = client.get_items()
